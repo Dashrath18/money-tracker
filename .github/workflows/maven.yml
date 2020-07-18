@@ -20,5 +20,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Deploy
+      env:
+        GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      run: |
+       echo $GCP_PROJECT_ID
     - name: Build with Maven
       run: mvn -B package --file pom.xml
